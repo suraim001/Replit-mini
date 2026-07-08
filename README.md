@@ -70,6 +70,7 @@ git --version
 ```
 
 If you see version numbers, your environment is ready.
+<img width="1366" height="225" alt="Screenshot from 2026-07-08 11-16-19" src="https://github.com/user-attachments/assets/94c65e65-0735-4d0b-add7-df82db62fbf9" />
 
 ### Linux-specific Docker setup
 If Docker requires sudo on your machine, add your user to the Docker group:
