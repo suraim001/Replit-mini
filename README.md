@@ -2,7 +2,7 @@
 
 This repository contains a browser-based coding environment inspired by Replit. It gives users a web editor, terminal access, and a sandboxed execution environment so they can create files, run code, and interact with a live container from the browser.
 
-Learning objectives:
+Objectives:
 - full-stack web development with React and Node.js
 - real-time communication with Socket.IO
 - container orchestration with Docker
@@ -31,6 +31,8 @@ The application has three main parts:
    - Allows the user to execute files and interact with a terminal
 
 In short, the project is a mini online IDE where the browser acts as the client, the backend manages containers, and Docker provides the execution environment.
+
+> Important note: This Replit-mini app is mainly intended for editing and running JavaScript and Python files. The built-in Run action currently supports JavaScript and Python execution through Node.js and Python inside the sandbox. Other languages can be created and edited, but they are not the main supported workflow for this lab.
 
 ---
 
@@ -121,8 +123,7 @@ The backend uses the following packages:
 - dockerode
 - nodemon (development)
 
-Nevigate to the project directry Fawaj_Suraim/puku-editor-interns-Fawaj_Suraim-6/ and 
-Install the dependencies with:
+Navigate to the project directory Fawaj_Suraim/puku-editor-interns-Fawaj_Suraim-6/ and install the dependencies with:
 
 ```bash
 cd backend
@@ -156,7 +157,7 @@ npm install
 
 This is the easiest way to run the full application locally.
 
-Nevigate to the project directory `Fawaj_Suraim/puku-editor-interns-Fawaj_Suraim-6/` and execute the following command
+Navigate to the project directory Fawaj_Suraim/puku-editor-interns-Fawaj_Suraim-6/ and execute the following command:
 ```bash
 make up
 ```
@@ -237,7 +238,26 @@ This demonstrates the main workflow of the project: edit → save → execute.
 
 ---
 
-## 6. Project Components to Explore
+## 6. Features and Limitations
+
+### Features
+- Browser-based code editor with Monaco Editor
+- Sidebar-based file explorer and tabbed editing
+- Terminal access inside a Docker sandbox
+- Support for saving and running files from the browser
+- Isolated execution environment for each session
+- Real-time communication between frontend and backend using Socket.IO
+
+### Limitations
+- The main supported runtime workflow in this lab is JavaScript and Python.
+- The built-in Run action is designed for JavaScript and Python files through Node.js and Python in the sandbox.
+- This project is a mini IDE and does not provide the full feature set of professional tools like VS Code or Replit.
+- Advanced features such as multi-language support, package management for all languages, and full debugging tools are not the focus of this lab.
+- Docker must be available on the machine for the sandboxed execution workflow.
+
+---
+
+## 7. Project Components to Explore
 
 ### Backend
 Key files include:
