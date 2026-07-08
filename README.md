@@ -1,8 +1,8 @@
-### Mini-Replit
+### Replit-Mini
 
 This repository contains a browser-based coding environment inspired by Replit. It gives users a web editor, terminal access, and a sandboxed execution environment so they can create files, run code, and interact with a live container from the browser.
 
-Learning objectives:
+Objectives:
 - full-stack web development with React and Node.js
 - real-time communication with Socket.IO
 - container orchestration with Docker
@@ -31,6 +31,8 @@ The application has three main parts:
    - Allows the user to execute files and interact with a terminal
 
 In short, the project is a mini online IDE where the browser acts as the client, the backend manages containers, and Docker provides the execution environment.
+
+> Important note: This Replit-mini app is mainly intended for editing and running JavaScript and Python files. The built-in Run action currently supports JavaScript and Python execution through Node.js and Python inside the sandbox. Other languages can be created and edited, but they are not the main supported workflow for this lab.
 
 ---
 
@@ -70,6 +72,7 @@ git --version
 ```
 
 If you see version numbers, your environment is ready.
+<img width="1366" height="225" alt="Screenshot from 2026-07-08 11-16-19" src="https://github.com/user-attachments/assets/94c65e65-0735-4d0b-add7-df82db62fbf9" />
 
 ### Linux-specific Docker setup
 If Docker requires sudo on your machine, add your user to the Docker group:
@@ -84,12 +87,35 @@ Then verify again:
 ```bash
 docker ps
 ```
+---
+
+## 4. Step-by-Step Lab Instructions
+
+### Step 1: Clone the project
+
+```bash
+# 1. Clone the repository skeleton (no files downloaded yet)
+git clone --no-checkout --sparse --filter=blob:none https://github.com/poridhioss/minions-26
+
+# 2. Enter the repository directory
+cd minions-26
+
+# 3. Set the sparse-checkout path to specific project
+git sparse-checkout set Fawaj_Suraim/puku-editor-interns-Fawaj_Suraim-6
+
+# 4. Checkout the files into your local system
+git checkout
+
+# 5. Nevigate to the project directory
+cd Fawaj_Suraim/puku-editor-interns-Fawaj_Suraim-6/
+```
+<img width="1354" height="523" alt="Screenshot from 2026-07-08 13-27-38" src="https://github.com/user-attachments/assets/bba5e96d-5853-49de-bcd5-feda952da079" />
 
 ---
 
-## 4. Dependencies Required for Local Setup
+### Step 2: Environment Setup
 
-### Backend dependencies
+### Required Backend dependencies
 The backend uses the following packages:
 - express
 - cors
@@ -97,14 +123,15 @@ The backend uses the following packages:
 - dockerode
 - nodemon (development)
 
-Install them with:
+Navigate to the project directory `Fawaj_Suraim/puku-editor-interns-Fawaj_Suraim-6/` and install the dependencies with:
 
 ```bash
 cd backend
 npm install
 ```
+<img width="1362" height="201" alt="Screenshot from 2026-07-08 15-47-15" src="https://github.com/user-attachments/assets/0c6338df-f558-460d-8e68-e4d322dc747f" />
 
-### Frontend dependencies
+### Required Frontend dependencies
 The frontend uses the following packages:
 - react
 - react-dom
@@ -118,24 +145,39 @@ The frontend uses the following packages:
 Install them with:
 
 ```bash
+
 cd frontend
 npm install
 ```
-
-> If you are using Docker for the full stack, you still need Docker and Node.js installed, but you do not need to install all frontend/backend packages manually for the container-based workflow.
+<img width="1362" height="201" alt="Screenshot from 2026-07-08 15-47-07" src="https://github.com/user-attachments/assets/9e353928-f38b-4351-9391-6824e65e4b67" />
 
 ---
 
-## 5. Step-by-Step Lab Instructions
+### Step 3: Build and run the project with Docker (recommended)
 
-### Step 1: Clone the project
+This is the easiest way to run the full application locally.
+
+Navigate to the project directory `Fawaj_Suraim/puku-editor-interns-Fawaj_Suraim-6/` and execute the following command:
+```bash
+make up
+```
+<img width="1355" height="689" alt="Screenshot from 2026-07-08 16-05-28" src="https://github.com/user-attachments/assets/a7ae180c-cab0-4327-8b40-b921d24e31fa" />
+
+Then open the application in your browser:
+
+- http://localhost:8080
+<img width="1362" height="700" alt="Screenshot from 2026-07-08 16-11-26" src="https://github.com/user-attachments/assets/5313f6fb-f572-4921-b07c-9703cb1701c3" />
+<img width="1362" height="700" alt="Screenshot from 2026-07-08 16-14-10" src="https://github.com/user-attachments/assets/b61a7533-d824-46ac-8f5f-079734b312e2" />
+
+To stop the stack later:
 
 ```bash
-git clone <your-repository-url>
-cd puku-editor-interns-Fawaj_Suraim-6
+make down
 ```
+<img width="1356" height="160" alt="Screenshot from 2026-07-08 16-08-55" src="https://github.com/user-attachments/assets/77cedf3e-43ba-4b74-86e0-33a187996da7" />
 
-### Step 2: Understand the project structure
+
+### Step 4: Understand the project structure
 
 The important folders are:
 - backend/ — Node.js server and Docker orchestration logic
@@ -143,26 +185,8 @@ The important folders are:
 - docker-compose.yml — Docker service configuration
 - Makefile — helper commands for starting and stopping the stack
 
-### Step 3: Build and run the project with Docker (recommended)
 
-This is the easiest way to run the full application locally.
-
-```bash
-make sandbox
-make up
-```
-
-Then open the application in your browser:
-
-- http://localhost:8080
-
-To stop the stack later:
-
-```bash
-make down
-```
-
-### Step 4: Run the project in native mode (optional)
+### Step 5: Run the project in native mode (optional)
 
 This method runs the backend and frontend directly on your machine.
 
@@ -175,6 +199,8 @@ cd backend
 npm install
 npm run dev
 ```
+<img width="1362" height="507" alt="Screenshot from 2026-07-08 16-17-03" src="https://github.com/user-attachments/assets/35d923bf-2a6d-487a-807b-eb0b1fee5bc2" />
+
 
 Terminal 2 — frontend:
 
@@ -183,6 +209,8 @@ cd frontend
 npm install
 npm run dev
 ```
+<img width="1355" height="514" alt="Screenshot from 2026-07-08 16-18-37" src="https://github.com/user-attachments/assets/18a8b13a-77df-429d-9544-abfcfb7150af" />
+
 
 Then open:
 
@@ -190,9 +218,12 @@ Then open:
 
 The frontend will connect to the backend on port 3001.
 
+<img width="1366" height="697" alt="Screenshot from 2026-07-08 16-21-29" src="https://github.com/user-attachments/assets/02dcaa56-a09d-49cc-81e7-7e4d332e14dc" />
+
+
 ---
 
-## 6. How to Use the Application
+## 5. How to Use the Application
 
 Once the app is running, follow these steps:
 
@@ -204,6 +235,25 @@ Once the app is running, follow these steps:
 6. Observe the terminal output in the sandbox container.
 
 This demonstrates the main workflow of the project: edit → save → execute.
+
+---
+
+## 6. Features and Limitations
+
+### Features
+- Browser-based code editor with Monaco Editor
+- Sidebar-based file explorer and tabbed editing
+- Terminal access inside a Docker sandbox
+- Support for saving and running files from the browser
+- Isolated execution environment for each session
+- Real-time communication between frontend and backend using Socket.IO
+
+### Limitations
+- The main supported runtime workflow in this lab is JavaScript and Python.
+- The built-in Run action is designed for JavaScript and Python files through Node.js and Python in the sandbox.
+- This project is a mini IDE and does not provide the full feature set of professional tools like VS Code or Replit.
+- Advanced features such as multi-language support, package management for all languages, and full debugging tools are not the focus of this lab.
+- Docker must be available on the machine for the sandboxed execution workflow.
 
 ---
 
@@ -231,7 +281,7 @@ Key files include:
 
 ---
 
-## 8. Common Troubleshooting
+## 7. Common Troubleshooting
 
 ### Docker permission issue
 If Docker commands fail with permission errors:
@@ -247,7 +297,6 @@ If the sandbox image is not found:
 ```bash
 make sandbox
 ```
-
 ### Frontend does not connect to backend
 Check that the backend is running and that the app is opened on the correct port.
 
@@ -256,22 +305,7 @@ If port 8080 or 5173 is occupied, stop the other process or change the port.
 
 ---
 
-## 9. Recommended Lab Flow
-
-Use this sequence while studying the project:
-
-1. Read the overview and understand the architecture.
-2. Install the required software.
-3. Install dependencies in backend and frontend.
-4. Start the project with Docker.
-5. Open the app and test the editor workflow.
-6. Explore the backend and frontend files.
-7. Modify small parts and observe the result.
-8. Troubleshoot issues and learn from them.
-
----
-
-## 10. Summary
+## 8. Summary
 
 This project is a practical example of how a browser-based IDE can be built using:
 - React for the interface
