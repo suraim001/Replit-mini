@@ -88,9 +88,28 @@ docker ps
 
 ---
 
-## 4. Dependencies Required for Local Setup
+## 4. Step-by-Step Lab Instructions
 
-### Backend dependencies
+### Step 1: Clone the project
+
+```bash
+# 1. Clone the repository skeleton (no files downloaded yet)
+git clone --no-checkout --sparse --filter=blob:none https://github.com/poridhioss/minions-26
+
+# 2. Enter the repository directory
+cd minions-26
+
+# 3. Set the sparse-checkout path to specific project
+git sparse-checkout set Fawaj_Suraim/puku-editor-interns-Fawaj_Suraim-6
+
+# 4. Checkout the files into your local system
+git checkout
+```
+---
+
+### Step 2: Environment Setup
+
+### Required Backend dependencies
 The backend uses the following packages:
 - express
 - cors
@@ -105,7 +124,7 @@ cd backend
 npm install
 ```
 
-### Frontend dependencies
+### Required Frontend dependencies
 The frontend uses the following packages:
 - react
 - react-dom
@@ -122,21 +141,9 @@ Install them with:
 cd frontend
 npm install
 ```
-
-> If you are using Docker for the full stack, you still need Docker and Node.js installed, but you do not need to install all frontend/backend packages manually for the container-based workflow.
-
 ---
 
-## 5. Step-by-Step Lab Instructions
-
-### Step 1: Clone the project
-
-```bash
-git clone <your-repository-url>
-cd puku-editor-interns-Fawaj_Suraim-6
-```
-
-### Step 2: Understand the project structure
+### Step 3: Understand the project structure
 
 The important folders are:
 - backend/ — Node.js server and Docker orchestration logic
@@ -163,7 +170,7 @@ To stop the stack later:
 make down
 ```
 
-### Step 4: Run the project in native mode (optional)
+### Step 5: Run the project in native mode (optional)
 
 This method runs the backend and frontend directly on your machine.
 
@@ -193,7 +200,7 @@ The frontend will connect to the backend on port 3001.
 
 ---
 
-## 6. How to Use the Application
+## 5. How to Use the Application
 
 Once the app is running, follow these steps:
 
@@ -208,7 +215,7 @@ This demonstrates the main workflow of the project: edit → save → execute.
 
 ---
 
-## 7. Project Components to Explore
+## 6. Project Components to Explore
 
 ### Backend
 Key files include:
@@ -232,7 +239,7 @@ Key files include:
 
 ---
 
-## 8. Common Troubleshooting
+## 7. Common Troubleshooting
 
 ### Docker permission issue
 If Docker commands fail with permission errors:
@@ -257,7 +264,7 @@ If port 8080 or 5173 is occupied, stop the other process or change the port.
 
 ---
 
-## 9. Recommended Lab Flow
+## 8. Recommended Lab Flow
 
 Use this sequence while studying the project:
 
@@ -272,7 +279,7 @@ Use this sequence while studying the project:
 
 ---
 
-## 10. Summary
+## 19. Summary
 
 This project is a practical example of how a browser-based IDE can be built using:
 - React for the interface
